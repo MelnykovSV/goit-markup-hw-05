@@ -13,6 +13,7 @@
   --footer-icon-bg: rgba(255, 255, 255, 0.1);
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
   --black: black;
+  --time: 250ms;
 }
 body {
   font-family: Roboto, sans-serif;
@@ -58,7 +59,7 @@ img {
 }
 
 .link {
-  transition: color 250ms var(--cubic);
+  transition: color var(--time) var(--cubic);
 }
 .link:hover {
   color: var(--blue);
@@ -118,7 +119,7 @@ img {
   width: 100%;
   border-radius: 2px;
   background-color: var(--blue);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--time) cubic-bezier(0.4, 0, 0.2, 1);
   transform: scaleX(0);
 }
 .menu__link--current {
@@ -165,7 +166,7 @@ img {
   display: block;
   margin-right: 10px;
   fill: var(--default-gray);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill var(--time) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header__email:hover > .mail__icon,
@@ -195,7 +196,7 @@ img {
   background-position: center;
   background-size: cover;
 }
-.hero_title {
+.hero__title {
   margin: 0 auto 30px auto;
   width: 696px;
 
@@ -207,7 +208,8 @@ img {
   text-transform: uppercase;
   color: var(--white);
 }
-.hero_button {
+.hero__button {
+  position: relative;
   display: block;
   margin: auto;
   padding: 10px 32px;
@@ -219,12 +221,31 @@ img {
   color: var(--white);
   cursor: pointer;
   background-color: var(--blue);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  transition: background-color var(--time) var(--cubic);
   border: none;
 }
-.hero_button:hover,
-.hero_button:focus {
+
+.hero__button::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0;
+  transition: opacity var(--time) var(--cubic);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.hero__button:hover::after,
+.hero__button:focus::after {
+  opacity: 1;
+}
+
+.hero__button:hover,
+.hero__button:focus {
   background-color: var(--dark-blue);
 }
 
@@ -398,7 +419,7 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  transition: background-color 250ms var(--cubic);
+  transition: background-color var(--time) var(--cubic);
 }
 .member-card__icon-container:hover,
 .member-card__icon-container:focus {
@@ -408,7 +429,7 @@ img {
   width: 20px;
   height: 20px;
   fill: var(--icon-gray);
-  transition: fill 250ms var(--cubic);
+  transition: fill var(--time) var(--cubic);
 }
 
 .member-card__icon-container:hover > .member-card__icon,
@@ -449,7 +470,7 @@ img {
 .clients__icon {
   display: block;
   fill: var(--icon-gray);
-  transition: fill 250ms var(--cubic);
+  transition: fill var(--time) var(--cubic);
 }
 .clients__icon-container:hover,
 .clients__icon-container:focus {
@@ -552,7 +573,7 @@ img {
   height: 44px;
   border-radius: 50%;
   background-color: var(--footer-icon-bg);
-  transition: background-color 250ms var(--cubic);
+  transition: background-color var(--time) var(--cubic);
 }
 .socials__icon-container:hover,
 .socials__icon-container:focus {
@@ -594,7 +615,8 @@ img {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: color 250ms var(--cubic), background-color 250ms var(--cubic);
+  transition: color var(--time) var(--cubic),
+    background-color var(--time) var(--cubic);
 }
 
 .filters__button::after {
@@ -605,7 +627,7 @@ img {
   height: 100%;
   content: "";
   opacity: 0;
-  transition: opacity 250ms var(--cubic);
+  transition: opacity var(--time) var(--cubic);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
@@ -646,7 +668,7 @@ img {
   height: 100%;
   content: "";
   opacity: 0;
-  transition: opacity 250ms var(--cubic);
+  transition: opacity var(--time) var(--cubic);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   border-radius: 4px;
@@ -674,7 +696,7 @@ img {
   line-height: calc(28 / 18);
   letter-spacing: 0.03em;
   color: #ffffff;
-  transition: transform 250ms var(--cubic);
+  transition: transform var(--time) var(--cubic);
   transform-origin: bottom;
   transform: scaleY(0);
 }
@@ -728,7 +750,7 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity 250ms var(--cubic);
+  transition: opacity var(--time) var(--cubic);
 }
 
 .modal {
@@ -742,7 +764,7 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transition: transform 250ms var(--cubic);
+  transition: transform var(--time) var(--cubic);
 }
 .backdrop.is-hidden {
   opacity: 0;
