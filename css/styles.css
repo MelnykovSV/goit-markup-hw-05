@@ -12,6 +12,7 @@
   --icon-gray: #afb1b8;
   --footer-icon-bg: rgba(255, 255, 255, 0.1);
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+  --black: black;
 }
 body {
   font-family: Roboto, sans-serif;
@@ -227,6 +228,24 @@ img {
   background-color: var(--dark-blue);
 }
 
+.modal {
+  padding: 8px;
+}
+.modal__close-button {
+  width: 30px;
+  height: 30px;
+  background-color: var(--white);
+  border-radius: 50%;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+.modal__close-icon {
+  fill: var(--black);
+}
+
 /*------------------------- features ----------------------------*/
 
 .features__title {
@@ -265,17 +284,18 @@ img {
 }
 
 .features-item__icon-container {
-  width: 100%;
+  display: flex;
+  height: 120px;
   background: var(--bg-light);
   border-radius: 4px;
-  padding: 25px;
+  justify-content: center;
+  align-items: center;
 }
 .features-item__icon {
   display: block;
-  margin: auto;
 }
 .features-item__body {
-  padding-top: 30px;
+  margin-top: 30px;
 }
 /*------------------------- services ----------------------------*/
 .services {
@@ -448,6 +468,7 @@ img {
 }
 .footer__body {
   display: flex;
+  align-items: baseline;
 }
 
 .footer__info {
@@ -506,7 +527,7 @@ img {
 } */
 
 .socials {
-  padding-top: 12px;
+  /* padding-top: 12px; */
 }
 .socials__title {
   font-size: 14px;
@@ -610,7 +631,7 @@ img {
 .projects img {
   width: 100%;
 }
-.projects a {
+.card {
   display: block;
 }
 .card {
